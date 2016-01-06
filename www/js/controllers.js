@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Chats, Photo, Qiniu, Api) {
+.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Photo, Qiniu) {
   $scope.reload =function() {
     $window.location.reload()
   }
@@ -83,8 +83,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('HomeCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Chats, Post, Photo, Api) {
-  $scope.chats = Chats.all()
+.controller('HomeCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Photo) {
   var Par = $resource($rootScope.baseUrl + '/api/partners/:id')
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
@@ -106,25 +105,24 @@ angular.module('starter.controllers', [])
   $scope.loadMore()
 })
 
-.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Post, Photo, Api) {
+.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo) {
   $scope.temfiles = []
   $scope.listFiles = function(f) {
-    // $scope.temfile = f // console.log($scope.temfile)// console.log($scope.temfile.$ngfName)
+    // console.log($scope.temfile)// console.log($scope.temfile.$ngfName)
     $scope.temfiles.push(f)
   }
   $scope.refresh = function() {
     $state.go($state.current, {}, {reload: true})
   }
+  $scope.keys = []
   $scope.upPhoto = function() {
-    // var count = 0
     // $scope.temfiles.forEach(function(file) {
       Qiniu.ngFileUp($scope.temfiles[0]).then(function (resp) {
-        // console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data.key + JSON.stringify(resp.data))
-        // http://7xj5ck.com1.z0.glb.clouddn.com/2015-11-28T06%3A11%3A25.113Z
+        // http://7xj5ck.com1.z0.glb.clouddn.com/2015-11-28T06%3A11%3A25.113Z // console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data.key + JSON.stringify(resp.data))
         var ph = new Photo({key: resp.data.key})
         ph.$save(function(data) {
-          // count += 1  if (count == $scope.temfiles.length) {
-          $state.go('tab.home', {}, {reload: true}) //$window.location.reload()
+          // $scope.keys.push(resp.data.key) ;if ($scope.keys.length == $scope.temfiles.length){ $state.go('tab.home', {}, {reload: true}) }
+          $state.go('tab.home', {}, {reload: true})
         })
       }, function (resp) {
         console.log('Error status: ' + resp.status)
@@ -135,13 +133,8 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('UserIdCtrl', function($scope, $stateParams, $http, $state, $rootScope, $window, Post, Comment, User, Follow, Chats, Api) {
-  // $scope.user = User.get({id: $stateParams.uId})
-  $scope.chat = Chats.get($stateParams.id)
 
-})
-
-.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Chats, Post, Photo, Api) {
+.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo) {
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
@@ -155,7 +148,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('StrangersIdCtrl', function($scope, $http, $rootScope, $stateParams, $state, $window, $resource, Chats, Post, Photo, Api) {
+.controller('StrangersIdCtrl', function($scope, $http, $rootScope, $stateParams, $state, $window, $resource, Photo) {
   var Str = $resource($rootScope.baseUrl + '/api/strangers/:id')
   $scope.s_asker_q = true
   Str.get({id: $stateParams.id}).$promise.then(function(data) {
@@ -183,7 +176,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('PartnersIdCtrl', function($scope, $http, $state, $rootScope, $stateParams, $window, $resource, Chats, Post, Photo, Api) {
+.controller('PartnersIdCtrl', function($scope, $http, $state, $rootScope, $stateParams, $window, $resource, Photo) {
   var Par = $resource($rootScope.baseUrl + '/api/partners/:id')
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
@@ -212,10 +205,10 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('MessageCtrl', function($scope, $http, $rootScope,$cordovaCamera,$cordovaCapture, $cordovaImagePicker,$resource,$cordovaInAppBrowser) {
+.controller('MessageCtrl', function($scope, $http, $rootScope) {
 
 })
 
-.controller('AccountCtrl', function($scope,$http,$cordovaCamera,$cordovaCapture) {
+.controller('AccountCtrl', function($scope,$http) {
 
 })

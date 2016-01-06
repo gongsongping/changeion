@@ -47,25 +47,25 @@ angular.module('starter.services', [])
   }
 })
 
-.factory('Api', function($resource, $rootScope) {
-  return {
-    User: function() {
-      return $resource($rootScope.baseUrl + '/api/users/:id')
-    },
-    Post: function() {
-      return $resource($rootScope.baseUrl + '/api/posts/:id')
-    },
-    Comment: function() {
-      return $resource($rootScope.baseUrl + '/api/comments/:id')
-    },
-    Session: function() {
-      return $resource($rootScope.baseUrl + '/api/session/:id')
-    },
-    Follow: function() {
-      return $resource($rootScope.baseUrl + '/api/follow/:id')
-    }
-  }
-})
+// .factory('Api', function($resource, $rootScope) {
+//   return {
+//     User: function() {
+//       return $resource($rootScope.baseUrl + '/api/users/:id')
+//     },
+//     Post: function() {
+//       return $resource($rootScope.baseUrl + '/api/posts/:id')
+//     },
+//     Comment: function() {
+//       return $resource($rootScope.baseUrl + '/api/comments/:id')
+//     },
+//     Session: function() {
+//       return $resource($rootScope.baseUrl + '/api/session/:id')
+//     },
+//     Follow: function() {
+//       return $resource($rootScope.baseUrl + '/api/follow/:id')
+//     }
+//   }
+// })
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
