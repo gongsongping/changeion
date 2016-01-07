@@ -47,7 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // setup an abstract state for the tabs directive
   .state('forms', {
     url: "/forms",
-    // cache: false,
+    cache: false,
     // abstract: true,
     views: {
       '@': {
@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .state('login', {
     url: '/login',
-    // cache: false,
+    cache: false,
     views: {
       '@': {
         templateUrl: 'templates/form-login.html',
@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .state('signup', {
     url: '/signup',
-    // cache: false,
+    cache: false,
     views: {
       '@': {
         templateUrl: 'templates/form-signup.html',

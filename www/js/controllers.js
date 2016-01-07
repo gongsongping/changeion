@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Photo, Qiniu) {
+.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Photo, Qiniu, $ionicModal, $timeout, Countries) {
   $scope.reload =function() {
     $window.location.reload()
   }
@@ -46,6 +46,30 @@ angular.module('starter.controllers', [])
         $rootScope.loginErr = data.err
       }
     })
+  }
+  $scope.countries = Countries.all()
+  $ionicModal.fromTemplateUrl('templates/countries.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal   // modal.show()
+  })
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove()
+  })
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  })
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  })
+  $scope.signupData.nationality = "select country"
+  $scope.setCtry = function(index) {
+    $scope.signupData.nationality = $scope.countries[index].name
+    $scope.modal.hide()
   }
   $scope.getFile = function(f) {
     $scope.temfile = f
