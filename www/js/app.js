@@ -28,6 +28,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault()
     }
+    $rootScope.deviceInformation = ionic.Platform.device();
+    $rootScope.isWebView = ionic.Platform.isWebView();
+    $rootScope.isIPad = ionic.Platform.isIPad();
+    $rootScope.isIOS = ionic.Platform.isIOS();
+    $rootScope.isAndroid = ionic.Platform.isAndroid();
+    $rootScope.isWindowsPhone = ionic.Platform.isWindowsPhone();
+    $rootScope.currentPlatform = ionic.Platform.platform();
+    $rootScope.currentPlatformVersion = ionic.Platform.version();
+    // console.log(JSON.stringify($rootScope.deviceInformation) + $rootScope.isWebView + $rootScope.isIPad + $rootScope.isIOS + $rootScope.isAndroid + $rootScope.currentPlatform + $rootScope.currentPlatformVersion);
+    if ($rootScope.isIOS || $rootScope.isAndroid || $rootScope.isWindowsPhone) {
+      $rootScope.isMobile = true; $rootScope.isDT = false
+    } else {
+      $rootScope.isMobile = false; $rootScope.isDT = true
+    }
   })
 })
 
