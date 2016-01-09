@@ -5,11 +5,11 @@ angular.module('starter.controllers', [])
   } else {
     $state.go('forms', {}, {reload: true})
   }
-  $scope.currentUser = Boolean($window.localStorage.token)
+  $rootScope.currentUser = Boolean($window.localStorage.token)
   // Form data for the login modal
   $scope.logout = function() {
     $window.localStorage.token = ''
-    $scope.currentUser = Boolean($window.localStorage.token)
+    $rootScope.currentUser = Boolean($window.localStorage.token)
     $http.defaults.headers.common['Authorization'] = ''
     console.log($window.localStorage.token)
     $rootScope.loginErr = ''
@@ -26,8 +26,8 @@ angular.module('starter.controllers', [])
   $scope.reload =function() {
     $window.location.reload()
   }
-  $scope.loginData = {email: "gsp@gmail.com", password: "191954"}
-  $scope.signupData = {name:'gsp'}
+  $scope.loginData = {email: "ch1@gmail.com", password: "191954"}
+  $scope.signupData = {name:'ch1'}
   $rootScope.loginErr = ''
   $rootScope.signupErr = ''
   // Perform the login action when the user submits the login form
@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
       console.log(data.token)
       if (data.token) {
         $window.localStorage.token = data.token
-        $scope.currentUser = Boolean($window.localStorage.token)
+        $rootScope.currentUser = Boolean($window.localStorage.token)
         $http.defaults.headers.common['Authorization'] = "Token token=" + data.token
         console.log($window.localStorage.token)
         $state.go('tab.home', {}, {reload: true})
@@ -82,7 +82,7 @@ angular.module('starter.controllers', [])
       user.$save(function(data) {
         if (data.token) {
           $window.localStorage.token = data.token
-          $scope.currentUser = Boolean($window.localStorage.token)
+          $rootScope.currentUser = Boolean($window.localStorage.token)
           $http.defaults.headers.common['Authorization'] = "Token token=" + data.token
           console.log($window.localStorage.token)
           $state.go('tab.home', {}, {reload: true})

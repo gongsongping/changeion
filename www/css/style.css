@@ -19,8 +19,7 @@ padding:0.3px;*/
 .album-ion-scroll {
   overflow:scroll;
   overflow-y:hidden;
-  white-space:
-  nowrap;
+  white-space:nowrap;
   padding:5px;
 }
 /*.imgcontainer {
