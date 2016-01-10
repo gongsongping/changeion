@@ -1,9 +1,6 @@
 <ion-view view-title="{{user.name}}">
   <ion-content>
-    <div class="item item-avatar">
-      <img src="{{user.avatar}}">
-      <h2>{{user.name}}</h2>
-    </div>
+    <div ng-include="'templates/_avatar.html'" ></div>
     <div class="" style="margin-left:auto; margin-right:auto; width:60vw;">
       <div ng-hide="isCurrentUser">
         <a ng-show="!s_asker_q && !partner_q && !s_target_q" ng-click="ask()" class="button button-assertive button-block">ask</a>
