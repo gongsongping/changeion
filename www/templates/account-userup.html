@@ -13,18 +13,10 @@
         </label>
         <label class="item item-input item-select">
           <div class="input-label">
-            nationality
+            select country
           </div>
           <button ng-click="modal.show()" class="button button-clear ">{{userupData.nationality}}</button>
         </label>
-        <!-- <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="userupData.password" >
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password Confirmation</span>
-          <input type="password" ng-model="userupData.password_confirmation" >
-        </label> -->
         <label class="item">
           <button ngf-select="getFile(file)" ng-model="file" name="file" ngf-pattern="'image/*'"
           accept="image/*"  ngf-resize="{width: 80, height: 80, quality: 0.9, ratio: '1:1', centerCrop: true}" class="button button-assertive button-small" >
