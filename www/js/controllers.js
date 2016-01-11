@@ -132,20 +132,16 @@ angular.module('starter.controllers', [])
 .controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo) {
   $scope.temfiles = []
   $scope.listFiles = function(f) {
-    // console.log($scope.temfile)// console.log($scope.temfile.$ngfName)
     $scope.temfiles.push(f)
   }
   $scope.refresh = function() {
     $state.go($state.current, {}, {reload: true})
   }
-  $scope.keys = []
   $scope.upPhoto = function() {
-    // $scope.temfiles.forEach(function(file) {
       Qiniu.ngFileUp($scope.temfiles[0]).then(function (resp) {
         // http://7xj5ck.com1.z0.glb.clouddn.com/2015-11-28T06%3A11%3A25.113Z // console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data.key + JSON.stringify(resp.data))
         var ph = new Photo({key: resp.data.key})
         ph.$save(function(data) {
-          // $scope.keys.push(resp.data.key) ;if ($scope.keys.length == $scope.temfiles.length){ $state.go('tab.home', {}, {reload: true}) }
           $state.go('tab.home', {}, {reload: true})
         })
       }, function (resp) {
