@@ -129,8 +129,9 @@ angular.module('starter.controllers', [])
   $scope.loadMore()
 })
 
-.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo) {
+.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo, $ionicScrollDelegate) {
   $rootScope.$broadcast('qiniuUPdate');  $scope.temfiles = []
+  // $ionicScrollDelegate.resize()
   $scope.listFiles = function(f) {
     $scope.temfile = f //$scope.temfiles.push(f)
   }
