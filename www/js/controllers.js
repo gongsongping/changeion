@@ -130,7 +130,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo) {
-  $scope.temfiles = []
+  $rootScope.$broadcast('qiniuUPdate');  $scope.temfiles = []
   $scope.listFiles = function(f) {
     $scope.temfile = f //$scope.temfiles.push(f)
   }
@@ -234,7 +234,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('UserupCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Qiniu, $ionicModal, $timeout, Countries) {
-  $scope.userupData = {}
+  $rootScope.$broadcast('qiniuUPdate'); $scope.userupData = {}
   var Userup =  $resource($rootScope.baseUrl + '/api/userup/:id')
   Userup.get({id:0}).$promise.then(function(data) {
     // console.log(JSON.stringify(data))
