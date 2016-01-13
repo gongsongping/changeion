@@ -10,9 +10,26 @@ angular.module('starter.directives')
        } else {
          $rootScope.containerwidth = document.body.clientWidth
        }
-      console.log(window.innerWidth)
-      console.log(document.body.clientWidth)
-      console.log($rootScope.containerwidth)
+      // console.log(window.innerWidth)
+      // console.log(document.body.clientWidth)
+      // console.log($rootScope.containerwidth)
+    }
+  }
+})
+.directive('parentwidth', function ($rootScope) {
+  return {
+    restrict: 'A',
+    scope: {},
+    link: function(scope, element, attrs) {
+       scope.getWidth = function () {
+         console.log(element[0].clientWidth + 'd'+ element.find('div')[0].clientWidth)
+         return element[0].clientWidth
+       }
+       scope.$watch(scope.getWidth,function(width) {
+        //  console.log(width +'d'+ element.find('div')[0].clientWidth);
+          $rootScope.pwidth = width
+       })
+      // console.log(element[0].clientWidth + 'ddd')
     }
   }
 })
