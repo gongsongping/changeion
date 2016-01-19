@@ -94,12 +94,14 @@ angular.module('starter.controllers', [])
     })
   }
 
-  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+  $scope.photos1 = [];$scope.photos2 = [];$scope.photos3 = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
         // console.log(JSON.stringify(data))
-        $scope.photos = $scope.photos.concat(data)
+        $scope.photos1 = $scope.photos1.concat(data.slice(0,2))
+        $scope.photos2 = $scope.photos2.concat(data.slice(2,4))
+        $scope.photos3 = $scope.photos3.concat(data.slice(4))
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
@@ -156,12 +158,14 @@ angular.module('starter.controllers', [])
 
 
 .controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo) {
-  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+  $scope.photos1 = [];$scope.photos2 = [];$scope.photos3 = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
-        console.log(JSON.stringify(data))
-        $scope.photos = $scope.photos.concat(data)
+        // console.log(JSON.stringify(data))
+        $scope.photos1 = $scope.photos1.concat(data.slice(0,2))
+        $scope.photos2 = $scope.photos2.concat(data.slice(2,4))
+        $scope.photos3 = $scope.photos3.concat(data.slice(4))
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
