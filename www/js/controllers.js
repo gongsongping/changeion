@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
   $scope.reload =function() {
     $window.location.reload()
   }
-  $scope.loginData = {email: "ch1@gmail.com", password: "191954"}
+  $scope.loginData = {email: "ch1@gmail.com", password: ""}
   $scope.signupData = {name:'ch1'} ; $rootScope.loginErr = ''; $rootScope.signupErr = ''
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
@@ -94,14 +94,14 @@ angular.module('starter.controllers', [])
     })
   }
 
-  $scope.photos1 = [];$scope.photos2 = [];$scope.photos3 = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
         // console.log(JSON.stringify(data))
-        $scope.photos1 = $scope.photos1.concat(data.slice(0,2))
-        $scope.photos2 = $scope.photos2.concat(data.slice(2,4))
-        $scope.photos3 = $scope.photos3.concat(data.slice(4))
+        var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
+        $scope.photos.push(data.slice(0,middle))
+        $scope.photos.push(data.slice(middle))
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
@@ -158,14 +158,14 @@ angular.module('starter.controllers', [])
 
 
 .controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo) {
-  $scope.photos1 = [];$scope.photos2 = [];$scope.photos3 = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
         // console.log(JSON.stringify(data))
-        $scope.photos1 = $scope.photos1.concat(data.slice(0,2))
-        $scope.photos2 = $scope.photos2.concat(data.slice(2,4))
-        $scope.photos3 = $scope.photos3.concat(data.slice(4))
+        var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
+        $scope.photos.push(data.slice(0,middle))
+        $scope.photos.push(data.slice(middle))
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
