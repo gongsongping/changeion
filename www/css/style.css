@@ -41,3 +41,9 @@ padding:0.3px;*/
   bottom: -100%;
   left: -100%;
 }
+.slide-text {
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height:115%;
+  font-size:1.2em;
+}
