@@ -22,8 +22,5 @@
     "com.ionic.keyboard",
     "org.apache.cordova.camera"
   ],
-  "cordovaPlatforms": [
-    "ios",
-    "android"
-  ]
+  "cordovaPlatforms": []
 }
