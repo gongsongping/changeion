@@ -4,9 +4,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js ,'ngIOS9UIWebViewPatch'
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ngResource','ngCordova','ngFileUpload']) //'firebase',
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']) //'firebase',
 
-.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource) {
+.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
   // $rootScope.baseUrl = "http://localhost:3000"
   //  $rootScope.baseUrl = "http://162.243.143.15"
   $rootScope.baseUrl = "http://changiif.com"
@@ -31,6 +31,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault()
     }
+
+    if(typeof navigator.globalization !== "undefined") {
+      navigator.globalization.getPreferredLanguage(function(language) {
+        $rootScope.language = language.value.split("-")[0]
+        $translate.use(language.value.split("-")[0])
+      }, null);
+    }
+
     $rootScope.deviceInformation = ionic.Platform.device();
     $rootScope.isWebView = ionic.Platform.isWebView();
     $rootScope.isIPad = ionic.Platform.isIPad();
@@ -49,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 })
 
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider, $translateProvider) {
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -59,6 +67,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $ionicConfigProvider.tabs.position("bottom") //Places them at the bottom for all OS
   $ionicConfigProvider.views.swipeBackEnabled(false)
   $ionicConfigProvider.views.forwardCache(true)
+
+  $translateProvider.translations('en', {
+    hello_message: "Howdy",
+    goodbye_message: "Goodbye"
+  });
+  $translateProvider.translations('zh', {
+    hello_message: "哈罗",
+    goodbye_message: "拜拜"
+  });
+  // $translateProvider.preferredLanguage("en");
+  $translateProvider.fallbackLanguage("en");
   // $ionicConfigProvider.tabs.style("standard"); //Makes them all look the same across all OS
   $stateProvider
   // setup an abstract state for the tabs directive
