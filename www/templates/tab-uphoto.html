@@ -10,7 +10,7 @@
     <div >
      <button ng-hide="file" ngf-select  ngf-change="listFiles(file)" ng-model="file" name="file" ngf-pattern="'image/*'"
        accept="image/*"  ngf-resize="{width: 700, height: 700, quality: 0.9}" class="button button-stable button-block" >
-       click to choose photo
+       {{"upload" | translate}}
        <i class="icon ion-images"></i>
      </button>
      <!-- <ion-spinner ng-if="wait" icon="spiral"></ion-spinner> -->

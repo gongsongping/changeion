@@ -3,7 +3,7 @@
     <div ng-include="'templates/_avatar.html'" ></div>
     <div class="" style="margin-left:auto; margin-right:auto; width:60vw;">
       <div ng-if="!isCurrentUser">
-        <a ng-if="!s_asker_q && !partner_q && !s_target_q" ng-click="ask()" class="button button-assertive button-block">ask</a>
+        <a ng-if="!s_asker_q && !partner_q && !s_target_q" ng-click="ask()" class="button button-assertive button-block">{{"ask" | translate}}</a>
         <h5 ng-if="s_asker_q" > wait for {{user.name}}'s answer </h5>
         <h5 ng-if="s_target_q" >is asking you</h5>
         <h5 ng-if="partner_q" >is your partner</h5>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="padding">
-      swipe to see more
+      swipe to view more
       <i class="icon ion-chevron-right icon-accessory"></i>
     </div>
     <div ng-include="'templates/_scroll_album.html'" ></div>

@@ -34,7 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     if(typeof navigator.globalization !== "undefined") {
       navigator.globalization.getPreferredLanguage(function(language) {
-        $rootScope.language = language.value.split("-")[0]
+        // $rootScope.language = language.value.split("-")[0]
         $translate.use(language.value.split("-")[0])
       }, null);
     }
@@ -69,12 +69,64 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   $ionicConfigProvider.views.forwardCache(true)
 
   $translateProvider.translations('en', {
-    hello_message: "Howdy",
+    log_in: "log in",
+    sign_up: "sign up",
+    name: "name",
+    email: "email",
+    nationality: "nationality",
+    password: "password",
+    password_confirmation: "password confirmation",
+    set_avatar: "set avatar",
+    asker: "people who are asking for you",
+    askee: "people you are asking for",
+    partners: "your partners",
+    upload: "upload photo",
+    edit_profile: "edit profile",
+    sign_out: "sign out",
+    ask: "ask",
+    agree: "agree",
+    cancel_relationship: "cancel relationship",
     goodbye_message: "Goodbye"
   });
   $translateProvider.translations('zh', {
-    hello_message: "哈罗",
+    log_in: "登录",
+    sign_up: "注册",
+    name: "用户名",
+    email: "邮箱",
+    nationality: "国籍",
+    password: "密码",
+    password_confirmation: "重复密码",
+    set_avatar: "设置头像",
+    asker: "询问者",
+    askee: "你询问的对象",
+    partners: "伙伴",
+    upload: "上传照片",
+    edit_profile: "编辑个人信息",
+    sign_out: "退出",
+    ask: "询问",
+    agree: "同意",
+    cancel_relationship: "取消关系",
     goodbye_message: "拜拜"
+  });
+  $translateProvider.translations('vi', {
+    log_in: "dang nhap",
+    sign_up: "dang ky",
+    name: "ten",
+    email: "email",
+    nationality: "quoc tich",
+    password: "mat khau",
+    password_confirmation: "mat khau nua",
+    set_avatar: "anh ca nhan",
+    asker: "nguoi dang hoi minh",
+    askee: "nguoi dang hoi minh",
+    partners: "ban",
+    upload: "up anh",
+    edit_profile: "su thong tin",
+    sign_out: "huy",
+    ask: "hoi",
+    agree: "dong y",
+    cancel_relationship: "cancel relationship",
+    goodbye_message: "bai"
   });
   // $translateProvider.preferredLanguage("en");
   $translateProvider.fallbackLanguage("en");
