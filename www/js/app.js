@@ -86,6 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     ask: "ask",
     agree: "agree",
     cancel_relationship: "cancel relationship",
+    more: "more",
     goodbye_message: "Goodbye"
   });
   $translateProvider.translations('zh', {
@@ -106,6 +107,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     ask: "询问",
     agree: "同意",
     cancel_relationship: "取消关系",
+    more: "更多",
     goodbye_message: "拜拜"
   });
   $translateProvider.translations('vi', {
@@ -118,7 +120,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     password_confirmation: "mat khau nua",
     set_avatar: "anh ca nhan",
     asker: "nguoi dang hoi minh",
-    askee: "nguoi dang hoi minh",
+    askee: "nguoi minh dang hoi",
     partners: "ban",
     upload: "up anh",
     edit_profile: "su thong tin",
@@ -126,6 +128,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     ask: "hoi",
     agree: "dong y",
     cancel_relationship: "cancel relationship",
+    more: "them nua",
     goodbye_message: "bai"
   });
   // $translateProvider.preferredLanguage("en");
