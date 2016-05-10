@@ -7,9 +7,9 @@
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']) //'firebase',
 
 .run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
-  // $rootScope.baseUrl = "http://localhost:3000"
+  $rootScope.baseUrl = "http://localhost:3000"
   //  $rootScope.baseUrl = "http://162.243.143.15"
-  $rootScope.baseUrl = "http://changiif.com"
+  // $rootScope.baseUrl = "http://changiif.com"
   $rootScope.$on('qiniuUPdate', function() {
     $resource('http://changiif.com/uptoken').get().$promise.then(function(data) {
       $window.localStorage.qiniuToken = data.uptoken
@@ -216,6 +216,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       'tab-change': {
         templateUrl: 'templates/change-strangers-id.html',
         controller: 'StrangersIdCtrl'
+      }
+    }
+  })
+  .state('tab.change-search', {
+    url: '/change/search/:nationality',
+    cache: false,
+    views: {
+      'tab-change': {
+        templateUrl: 'templates/change-search-nationality.html',
+        controller: 'ChangeSearchNationalityCtrl'
       }
     }
   })

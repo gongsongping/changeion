@@ -1,14 +1,9 @@
 <ion-view view-title="">
-  <ion-nav-buttons side="secondary">
+  <!-- <ion-nav-buttons side="secondary">
     <button ng-click="reload()" class="button button-icon button-clear ion-ios-refresh-empty" >
     </button>
-  </ion-nav-buttons>
+  </ion-nav-buttons> -->
   <ion-content style="">
-    <div ng-include="'templates/_slide_box.html'" ></div>
-    <div style="margin-left:auto; margin-right:auto; max-width:300px;">
-      <!-- <a class="button button-full button-stable" href="#/tab/change/search/china">search</a> -->
-      <button class="button button-full button-small button-stable" ng-click="modal.show()"><i class="icon ion-ios-search"></i> search</button>
-    </div>
     <div style="margin-left:auto; margin-right:auto; max-width:800px;">
       <div ng-repeat="ps in photos" class="row" style="padding:0px;">
         <div ng-repeat="p in ps" class="col" style="padding:0.2px;">
