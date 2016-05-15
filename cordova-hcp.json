@@ -1,0 +1,10 @@
+{
+  "name": "changiif",
+  "s3bucket": "gongsongping",
+  "s3prefix": "changiif/",
+  "s3region": "ap-northeast-1",
+  "ios_identifier": "",
+  "android_identifier": "",
+  "update": "start",
+  "content_url": "https://s3-ap-northeast-1.amazonaws.com/gongsongping/changiif/"
+}

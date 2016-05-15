@@ -200,11 +200,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ChangeSearchNationalityCtrl', function($scope, $http, $rootScope, $state, $window, $stateParams, $resource, Photo) {
-  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+  $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 6; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId, nationality:$stateParams.nationality})
       .$promise.then(function(data) {
         // console.log(JSON.stringify(data))
+        $scope.dataLength = data.length
         var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
         $scope.photos.push(data.slice(0,middle))
         $scope.photos.push(data.slice(middle))

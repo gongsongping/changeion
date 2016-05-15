@@ -1,11 +1,11 @@
-<?xml version="1.0.1" encoding="UTF-8" standalone="yes"?>
-<widget id="com.changiif.changiif" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<?xml version="1.0.3" encoding="UTF-8" standalone="yes"?>
+<widget id="com.changiif.changiif" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>changiif</name>
   <description>
-        change photos with people from other countries
-    </description>
+    change photos with people from other countries
+  </description>
   <author email="gongsongping@gmail.com" href="http://changiif.com/">
-      gongsongping
+    gongsongping
   </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -69,4 +69,7 @@
     <icon src="resources/android/icon/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
+  <chcp>
+    <config-file url="https://s3-ap-northeast-1.amazonaws.com/gongsongping/changiif/chcp.json" />
+  </chcp>
 </widget>
