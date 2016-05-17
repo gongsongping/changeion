@@ -220,7 +220,7 @@ angular.module('starter.controllers', [])
   var Str = $resource($rootScope.baseUrl + '/api/strangers/:id')
   $scope.s_asker_q = true
   Str.get({id: $stateParams.id}).$promise.then(function(data) {
-    console.log(JSON.stringify(data))
+    // console.log(JSON.stringify(data))
     $scope.photos = data.photos
     $scope.user = data.user
     $scope.s_asker_q = data.s_asker_q
@@ -251,7 +251,7 @@ angular.module('starter.controllers', [])
     if ($scope.dataLength == $scope.limit){
       Par.get({id:$stateParams.id, page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
-        console.log(JSON.stringify(data))
+        // console.log(JSON.stringify(data))
         $scope.dataLength = data.photos.length
         $scope.photos = $scope.photos.concat(data.photos)
         if ($scope.page == 0){$scope.user = data.user}
@@ -271,6 +271,22 @@ angular.module('starter.controllers', [])
       $scope.partner_q = !$scope.partner_q
     })
   }
+
+  $scope.downloadImg = function(url) {
+    var canvas, context; var img = new Image(); img.src = url;
+    console.log(url);
+    // img.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+    img.onload = function() {
+      canvas = document.getElementById('convasid');
+      canvas.width = img.width; canvas.height = img.height;
+      context = canvas.getContext('2d'); context.drawImage(img, 0, 0);
+      window.canvas2ImagePlugin.saveImageDataToLibrary(
+        function(msg){console.log(msg);},function(err){console.log(err);},
+        document.getElementById('convasid')
+      );
+    }
+  }
+
 })
 
 .controller('MessageCtrl', function($scope, $http, $rootScope) {

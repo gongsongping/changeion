@@ -17,7 +17,7 @@
   },
   {
     "file": "js/controllers.js",
-    "hash": "d48195940ec6318f30f250436c02459e"
+    "hash": "3935aac9320ad562fd516c724aeb2710"
   },
   {
     "file": "js/directives.js",
@@ -813,15 +813,11 @@
   },
   {
     "file": "templates/home-partners-id.html",
-    "hash": "f66e393e6857d8d711c85387ba72f86f"
+    "hash": "4388b2c169ebcd56436c15275f17f485"
   },
   {
     "file": "templates/home-strangers-id.html",
     "hash": "41ccce8e7974c74dac45756530fc6aa5"
-  },
-  {
-    "file": "templates/home-user-id.html",
-    "hash": "3fb1e8ae08848df5f2489d9f300be6b4"
   },
   {
     "file": "templates/mes1.html",
@@ -841,7 +837,7 @@
   },
   {
     "file": "templates/tab-home.html",
-    "hash": "101984bc56b28b5e9d9390a344129fd1"
+    "hash": "5ef30558f983fe91513f37a315cf8179"
   },
   {
     "file": "templates/tab-message.html",
