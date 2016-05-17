@@ -17,7 +17,7 @@
   },
   {
     "file": "js/controllers.js",
-    "hash": "441f2594ab53e0a6ab88158a31500f1b"
+    "hash": "d48195940ec6318f30f250436c02459e"
   },
   {
     "file": "js/directives.js",
@@ -841,7 +841,7 @@
   },
   {
     "file": "templates/tab-home.html",
-    "hash": "5ef30558f983fe91513f37a315cf8179"
+    "hash": "101984bc56b28b5e9d9390a344129fd1"
   },
   {
     "file": "templates/tab-message.html",

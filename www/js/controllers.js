@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
     $window.location.reload()
   }
   $scope.loginData = {email: "ch1@gmail.com", password: ""}
-  $scope.signupData = {name:'ch1'} ; $rootScope.loginErr = ''; $rootScope.signupErr = ''
+  $scope.signupData = {name:'ch1@gmail.com'} ; $rootScope.loginErr = ''; $rootScope.signupErr = ''
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     var sess = new Session($scope.loginData)
