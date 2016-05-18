@@ -813,19 +813,11 @@
   },
   {
     "file": "templates/home-partners-id.html",
-    "hash": "4388b2c169ebcd56436c15275f17f485"
+    "hash": "394ab4b3a3a93ea21bec04a62c3f5388"
   },
   {
     "file": "templates/home-strangers-id.html",
     "hash": "41ccce8e7974c74dac45756530fc6aa5"
-  },
-  {
-    "file": "templates/mes1.html",
-    "hash": "2bef18f8cc619b7ba26265255ab523cc"
-  },
-  {
-    "file": "templates/mes2.html",
-    "hash": "12ee5c4fbf93e81db177e19a3be7f7ae"
   },
   {
     "file": "templates/tab-account.html",
@@ -837,7 +829,7 @@
   },
   {
     "file": "templates/tab-home.html",
-    "hash": "5ef30558f983fe91513f37a315cf8179"
+    "hash": "1bd6ccec8b98593ad56181eb602b2bb4"
   },
   {
     "file": "templates/tab-message.html",

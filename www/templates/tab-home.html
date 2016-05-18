@@ -1,14 +1,24 @@
 <ion-view hide-nav-bar="true" view-title="Home">
   <ion-content overflow-scroll="true" style="padding-top:20px;">
     <div ng-include="'templates/_avatar.html'" ></div>
-    <!-- <h2>{{"goodbye_message" | translate}}</h2> -->
+    <div ng-if="partners.length">
+      <div class="item item-divider">{{"partners" | translate}}</div>
+      <div class="list">
+        <a ng-repeat="u in partners" class="item item-avatar item-icon-right" href="#/tab/home/partners/{{u.id}}">
+          <img ng-src="{{u.avatar}}">
+          <h2>{{u.name}}</h2>
+          <p>is your partner, click to view the album</p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </a>
+      </div>
+    </div>
     <div ng-if="s_askers.length">
       <div class="item item-divider">{{"asker" | translate}}</div>
       <div class="list">
         <a ng-repeat="u in s_askers" class="item item-avatar item-icon-right" href="#/tab/home/strangers/{{u.id}}">
           <img ng-src="{{u.avatar}}">
           <h2>{{u.name}}</h2>
-          <p>is asking you,click to answer</p>
+          <p>is asking you, click to answer</p>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </a>
       </div>
@@ -24,17 +34,7 @@
         </a>
       </div>
     </div>
-    <div ng-if="partners.length">
-      <div class="item item-divider">{{"partners" | translate}}</div>
-      <div class="list">
-        <a ng-repeat="u in partners" class="item item-avatar item-icon-right" href="#/tab/home/partners/{{u.id}}">
-          <img ng-src="{{u.avatar}}">
-          <h2>{{u.name}}</h2>
-          <p>is your partner,click to view the album</p>
-          <i class="icon ion-chevron-right icon-accessory"></i>
-        </a>
-      </div>
-    </div>
+
     <div class="padding">
       your album here, swipe to view more
       <i class="icon ion-chevron-right icon-accessory"></i>

@@ -13,7 +13,7 @@
       <canvas id="convasid" width="1px" height="1px" style="display:none;"></canvas>
       <a ng-repeat="p in photos" style="position:relative;display:inline-block;padding:2px;">
         <div class="" style="position:absolute;" >
-          <p  ng-bind="p.created_at | date:'yyyy-MM-dd'" style="display:inline; background-color:LightCyan; color:black;"> </p>
+          <p ng-bind="p.created_at | date:'yyyy-MM-dd'" style="display:inline; background-color:LightCyan; color:black;"> </p>
           <button ng-click="downloadImg(p.url)" class="button button-small button-stable" style="display:inline;"> download <i class="icon ion-ios-download"></i></button>
         </div>
         <img src="{{p.url}}" style="width: auto; max-height:320px;" >
