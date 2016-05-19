@@ -5,7 +5,7 @@ require 'mina/git'
 set :user, 'gsp'
 set :domain, 'changiif.com'
 # set :domain, '162.243.143.15'
-set :deploy_to, '/home/gsp/wd/change/public/change'
+set :deploy_to, '/home/gsp/wd/change/public'
 # set :deploy_to, '/home/gsp/beta/rails-do'
 set :repository, '/home/gsp/repo/rails-do.git'
 set :branch, 'master'
@@ -14,7 +14,7 @@ set :branch, 'master'
 task :scp do
   to :before_hook do
     queue 'cd www'
-    queue 'tar -zcvf www.tar.gz .'
+    queue 'tar -zcf www.tar.gz .'
     queue "scp www.tar.gz gsp@changiif.com:#{deploy_to}"
     queue 'rm www.tar.gz'
   end
@@ -22,9 +22,26 @@ task :scp do
   # queue 'tar -zxvf www.tar.gz'
   # queue 'rm www.tar.gz'
   in_directory "#{deploy_to}" do
-    queue %[tar -zxvf www.tar.gz]
+    queue %[tar -zxf www.tar.gz]
     queue 'rm www.tar.gz'
-    queue 'nano index.html'
+    # queue 'nano index.html'
+  end
+end
+
+task :scpapk do
+  to :before_hook do
+    queue 'cd platforms/android/build/outputs/apk'
+    queue 'mv android-armv7-debug.apk changiif.apk'
+    queue 'tar -zcf changiif.tar.gz changiif.apk'
+    queue "rsync -avP changiif.tar.gz gsp@changiif.com:#{deploy_to}"
+    queue 'rm changiif.tar.gz'
+  end
+  queue 'ls'
+  # queue 'tar -zxvf www.tar.gz'
+  # queue 'rm www.tar.gz'
+  in_directory "#{deploy_to}" do
+    queue %[tar -zxf changiif.tar.gz]
+    queue 'rm changiif.tar.gz'
   end
 end
 
