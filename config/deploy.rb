@@ -31,18 +31,18 @@ end
 task :scpapk do
   to :before_hook do
     queue 'cd platforms/android/build/outputs/apk'
-    queue 'mv android-armv7-debug.apk changiif.apk'
-    queue 'tar -zcf changiif.tar.gz changiif.apk'
-    queue "rsync -avP changiif.tar.gz gsp@changiif.com:#{deploy_to}"
-    queue 'rm changiif.tar.gz'
+    queue 'mv android-debug.apk changiif.apk'
+    # queue 'tar -zcf changiif.tar.gz changiif.apk'
+    queue "rsync -avP changiif.apk gsp@changiif.com:#{deploy_to}"
+    # queue 'rm changiif.tar.gz'
   end
   queue 'ls'
   # queue 'tar -zxvf www.tar.gz'
   # queue 'rm www.tar.gz'
-  in_directory "#{deploy_to}" do
-    queue %[tar -zxf changiif.tar.gz]
-    queue 'rm changiif.tar.gz'
-  end
+  # in_directory "#{deploy_to}" do
+  #   queue %[tar -zxf changiif.tar.gz]
+  #   queue 'rm changiif.tar.gz'
+  # end
 end
 
 # For system-wide RVM install.
