@@ -4,9 +4,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js ,'ngIOS9UIWebViewPatch'
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']) //'firebase',
+var app = angular.module('starter', ['ionic', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']) //'firebase',
 
-.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
+app.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
   // $rootScope.baseUrl = "http://localhost:3000"
   //  $rootScope.baseUrl = "http://162.243.143.15"
   $rootScope.baseUrl = "http://changiif.com"
@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 })
 
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider, $translateProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider, $translateProvider) {
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -278,26 +278,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       'tab-message': {
         templateUrl: 'templates/tab-message.html',
         controller: 'MessageCtrl'
-      }
-    }
-  })
-  .state('tab.message.mes1', {
-    url: '/mes1',
-    cache: false,
-    views: {
-      'message-mes@tab.message': {
-        templateUrl: 'templates/mes1.html'
-        // controller: 'MessageCtrl'
-      }
-    }
-  })
-  .state('tab.message.mes2', {
-    url: '/mes2',
-    // cache: false,
-    views: {
-      'message-mes@tab.message': {
-        templateUrl: 'templates/mes2.html'
-        // controller: 'MessageCtrl'
       }
     }
   })

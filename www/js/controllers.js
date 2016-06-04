@@ -1,5 +1,5 @@
-angular.module('starter.controllers', [])
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window, $http, $state, $rootScope, Session, User, $ionicSlideBoxDelegate) {
+// angular.module('starter.controllers', [])
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window, $http, $state, $rootScope, Session, User, $ionicSlideBoxDelegate) {
   if ($window.localStorage.token) {
     $state.go('tab.home', {}, {reload: true})
   } else {
@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Photo, Qiniu, $ionicModal, $timeout, Countries) {
+app.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window, $stateParams, Session, User, Photo, Qiniu, $ionicModal, $timeout, Countries) {
   $scope.reload =function() {
     $window.location.reload()
   }
@@ -109,7 +109,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('HomeCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Photo) {
+app.controller('HomeCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Photo) {
   var Par = $resource($rootScope.baseUrl + '/api/partners/:id')
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
@@ -131,7 +131,7 @@ angular.module('starter.controllers', [])
   $scope.loadMore()
 })
 
-.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo, $ionicScrollDelegate) {
+app.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window, Qiniu, Photo, $ionicScrollDelegate) {
   $rootScope.$broadcast('qiniuUPdate');  $scope.temfiles = []
   // $ionicScrollDelegate.resize()
   $scope.listFiles = function(f) {
@@ -157,7 +157,7 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo, $ionicModal, $timeout, Countries) {
+app.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo, $ionicModal, $timeout, Countries) {
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
@@ -199,7 +199,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChangeSearchNationalityCtrl', function($scope, $http, $rootScope, $state, $window, $stateParams, $resource, Photo) {
+app.controller('ChangeSearchNationalityCtrl', function($scope, $http, $rootScope, $state, $window, $stateParams, $resource, Photo) {
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 6; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId, nationality:$stateParams.nationality})
@@ -216,7 +216,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('StrangersIdCtrl', function($scope, $http, $rootScope, $stateParams, $state, $window, $resource, Photo) {
+app.controller('StrangersIdCtrl', function($scope, $http, $rootScope, $stateParams, $state, $window, $resource, Photo) {
   var Str = $resource($rootScope.baseUrl + '/api/strangers/:id')
   $scope.s_asker_q = true
   Str.get({id: $stateParams.id}).$promise.then(function(data) {
@@ -244,7 +244,7 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('PartnersIdCtrl', function($scope, $http, $state, $rootScope, $stateParams, $window, $resource, Photo) {
+app.controller('PartnersIdCtrl', function($scope, $http, $state, $rootScope, $stateParams, $window, $resource, Photo) {
   var Par = $resource($rootScope.baseUrl + '/api/partners/:id')
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
   $scope.loadMore = function() {
@@ -289,15 +289,15 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('MessageCtrl', function($scope, $http, $rootScope) {
+app.controller('MessageCtrl', function($scope, $http, $rootScope) {
 
 })
 
-.controller('AccountCtrl', function($scope,$http) {
+app.controller('AccountCtrl', function($scope,$http) {
 
 })
 
-.controller('UserupCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Qiniu, $ionicModal, $timeout, Countries) {
+app.controller('UserupCtrl', function($scope, $http, $state, $rootScope, $window, $resource, Qiniu, $ionicModal, $timeout, Countries) {
   $rootScope.$broadcast('qiniuUPdate'); $scope.userupData = {}
   var Userup =  $resource($rootScope.baseUrl + '/api/userup/:id')
   Userup.get({id:0}).$promise.then(function(data) {

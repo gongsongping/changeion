@@ -1,6 +1,6 @@
-angular.module('starter.directives', [])
-angular.module('starter.directives')
-.directive('bodywidth', function ($rootScope) {
+// angular.module('starter.directives', [])
+// angular.module('starter.directives')
+app.directive('bodywidth', function ($rootScope) {
   return {
     restrict: 'A',
     scope: {},
@@ -16,7 +16,7 @@ angular.module('starter.directives')
     }
   }
 })
-.directive('parentwidth', function ($rootScope) {
+app.directive('parentwidth', function ($rootScope) {
   return {
     restrict: 'A',
     scope: {},
@@ -34,7 +34,39 @@ angular.module('starter.directives')
   }
 })
 
-// .directive('chsquare', function () {
+app.directive('imgsquare', function () {
+  return {
+    restrict: 'A',
+    scope: {},
+    link: function(scope, elem, attrs) {
+      var width = elem.css('width'); console.log(width)
+      if (elem.css('width') > elem.css('height')){
+        // elem.css('height','auto')
+        elem.css('height', "100%")
+      } else {
+        elem.css('width', "100%")
+        // elem.css('width', 'auto')
+      }
+    }
+  }
+})
+app.directive('croppedImage', function () {
+  return {
+    restrict: "E",
+    replace: true,
+    template: "<div class='center-cropped'></div>",
+    link: function(scope, element, attrs) {
+      var width = attrs.width;
+      var height = attrs.height;
+      element.css('width', width + "px");
+      element.css('height', height + "px");
+      element.css('backgroundPosition', 'center center');
+      element.css('backgroundRepeat', 'no-repeat');
+      element.css('backgroundImage', "url('" + attrs.src + "')");
+    }
+  }
+})
+// app.directive('chsquare', function () {
 //   return {
 //     restrict: 'A',
 //     scope: {},
@@ -56,7 +88,7 @@ angular.module('starter.directives')
 //     }
 //   }
 // })
-// .directive('fsquare', function () {
+// app.directive('fsquare', function () {
 //   return {
 //     restrict: 'A',
 //     scope: {},
@@ -74,35 +106,3 @@ angular.module('starter.directives')
 //     }
 //   }
 // })
-.directive('imgsquare', function () {
-  return {
-    restrict: 'A',
-    scope: {},
-    link: function(scope, elem, attrs) {
-      var width = elem.css('width'); console.log(width)
-      if (elem.css('width') > elem.css('height')){
-        // elem.css('height','auto')
-        elem.css('height', "100%")
-      } else {
-        elem.css('width', "100%")
-        // elem.css('width', 'auto')
-      }
-    }
-  }
-})
-.directive('croppedImage', function () {
-  return {
-    restrict: "E",
-    replace: true,
-    template: "<div class='center-cropped'></div>",
-    link: function(scope, element, attrs) {
-      var width = attrs.width;
-      var height = attrs.height;
-      element.css('width', width + "px");
-      element.css('height', height + "px");
-      element.css('backgroundPosition', 'center center');
-      element.css('backgroundRepeat', 'no-repeat');
-      element.css('backgroundImage', "url('" + attrs.src + "')");
-    }
-  }
-})

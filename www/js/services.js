@@ -1,29 +1,29 @@
-angular.module('starter.services', [])
+// angular.module('starter.services', [])
 
-.factory('User', function($resource, $rootScope) {
+app.factory('User', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/users/:id');
 })
 
-.factory('Follow', function($resource, $rootScope) {
+app.factory('Follow', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/follow/:id');
 })
 
-.factory('Post', function($resource, $rootScope) {
+app.factory('Post', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/posts/:id');
 })
 
-.factory('Comment', function($resource, $rootScope) {
+app.factory('Comment', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/comments/:id');
 })
 
-.factory('Session', function($resource, $rootScope) {
+app.factory('Session', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/session/:id');
 })
-.factory('Photo', function($resource, $rootScope) {
+app.factory('Photo', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/photos/:id');
 })
 
-.factory('Qiniu', function($window, $http ,Upload) {
+app.factory('Qiniu', function($window, $http ,Upload) {
   return {
     ngFileUp: function(f) {
       return Upload.upload({
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
 })
 
 
-.factory('Countries', function() {
+app.factory('Countries', function() {
   // Might use a resource here that returns a JSON array
   // Some fake testing data
   var countries =  [ {
