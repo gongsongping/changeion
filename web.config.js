@@ -5,7 +5,7 @@ var purify = require("purifycss-webpack-plugin");
 module.exports = {
     entry: "./www/web/entry.js",
     output: {
-        path: "./www/web",
+        path: "./www/web/bundle",
         filename: "bundle.js"
     },
     module: {
@@ -18,13 +18,15 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css"),
-        new purify({
-            // basePath: __dirname,
-            paths: [
-                "./www/web/*.html",
-                "./www/web/tpls/*.html"
-            ]
-        })
+        new ExtractTextPlugin("bundle.css")
     ]
 };
+
+// ,
+// new purify({
+//     // basePath: __dirname,
+//     paths: [
+//         "./www/web/*.html",
+//         "./www/web/tpls/*.html"
+//     ]
+// })

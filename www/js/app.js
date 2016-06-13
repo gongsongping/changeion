@@ -1,9 +1,11 @@
+// require("jquery/dist/jquery.min.js");
+// require("semantic-ui/dist/semantic.min.js");
 require("ionic/js/ionic.bundle.min.js");
 // require('angular-ui-router/release/angular-ui-router.min.js');
 require('angular-md5/angular-md5.min.js');
-require('angular-resource/angular-resource.js'); 
+require('angular-resource/angular-resource.js');
 require("ngCordova/dist/ng-cordova.min.js");
-require("angular-translate/angular-translate.min.js"); 
+require("angular-translate/angular-translate.min.js");
 require("angular-resource/angular-resource.js");
 // require("ng-file-upload/ng-file-upload-shim.min.js");
 require("ng-file-upload/ng-file-upload.min.js");

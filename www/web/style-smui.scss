@@ -6,6 +6,9 @@ $imagePath : '~semantic-ui-sass/app/assets/images';
 $fontPath : '~semantic-ui-sass/app/assets/fonts';
 @import '~semantic-ui/src/semantic.less';
 */
-$image-path : '~semantic-ui-sass/app/assets/images/semantic-ui';
+/*$image-path : '~semantic-ui-sass/app/assets/images/semantic-ui';
 $font-path : '~semantic-ui-sass/app/assets/fonts/semantic-ui';
-@import "~semantic-ui-sass/app/assets/stylesheets/semantic-ui.scss";
+@import "~semantic-ui-sass/app/assets/stylesheets/semantic-ui.scss";*/
+body {
+	padding: 20px;
+}

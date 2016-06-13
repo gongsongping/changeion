@@ -5,44 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-    <link rel="stylesheet" href="bundle.css">
-    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle/bundle.css">
+    <script src="bundle/bundle.js"></script>
 </head>
 
 <body ng-app="app" ng-controller="MainCtrl" class="">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Title</a>
-            <ul class="nav navbar-nav">
-                <li><a ui-sref="home">home</a></li>
-                <li><a ui-sref="login">login</a></li>
-            </ul>
+    <div class="ui menu">
+        <div class="header item">
+            Our Company
         </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div ui-view></div>
+        <a class="item" ui-sref="home">Home</a>
+        <div class="right menu">
+            <a class="item" ui-sref="login">Login</a>
         </div>
     </div>
-    <div>{{name}} and {{fname}}</div>
-    <div class="infobox"><p class="message">subinfobox message</p>sass test</div>
-    <button class="btn btn-positive">
-        bootstrap btn
-    </button>
-    <button class="ui circular facebook icon button">
-        <i class="facebook icon"></i>
-    </button>
-    <button class="ui circular twitter icon button">
-        <i class="twitter icon"></i>
-    </button>
-    <button class="ui circular linkedin icon button">
-        <i class="linkedin icon"></i>
-    </button>
-    <button class="ui circular google plus icon button">
-        <i class="google plus icon"></i>
-    </button>
-    <button class="ui red button">Red</button>
-    <button class="ui orange button">Orange</button>
+    <div ui-view></div>
+    
 </body>
 
 </html>
