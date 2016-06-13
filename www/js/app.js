@@ -1,10 +1,13 @@
-// Ionic Starter App
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js ,'ngIOS9UIWebViewPatch'
-var app = angular.module('starter', ['ionic', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']) //'firebase',
+require("ionic/js/ionic.bundle.min.js");
+// require('angular-ui-router/release/angular-ui-router.min.js');
+require('angular-md5/angular-md5.min.js');
+require('angular-resource/angular-resource.js'); 
+require("ngCordova/dist/ng-cordova.min.js");
+require("angular-translate/angular-translate.min.js"); 
+require("angular-resource/angular-resource.js");
+// require("ng-file-upload/ng-file-upload-shim.min.js");
+require("ng-file-upload/ng-file-upload.min.js");
+var app = angular.module('app', ['ionic', 'ngResource','ngCordova','ngFileUpload','pascalprecht.translate']);
 
 app.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
   // $rootScope.baseUrl = "http://localhost:3000"
@@ -286,3 +289,6 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConf
   $urlRouterProvider.otherwise('/tab/home');
 
 });
+
+module.exports = app;
+

@@ -1,4 +1,4 @@
-// angular.module('starter.controllers', [])
+var app = require('./app.js')
 app.controller('AppCtrl', function($scope, $ionicModal, $timeout, $window, $http, $state, $rootScope, Session, User, $ionicSlideBoxDelegate) {
   if ($window.localStorage.token) {
     $state.go('tab.home', {}, {reload: true})

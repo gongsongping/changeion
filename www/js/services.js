@@ -1,4 +1,4 @@
-// angular.module('starter.services', [])
+var app = require('./app.js')
 
 app.factory('User', function($resource, $rootScope) {
   return $resource($rootScope.baseUrl + '/api/users/:id');

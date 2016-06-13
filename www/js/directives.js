@@ -1,5 +1,4 @@
-// angular.module('starter.directives', [])
-// angular.module('starter.directives')
+var app = require('./app.js')
 app.directive('bodywidth', function ($rootScope) {
   return {
     restrict: 'A',
