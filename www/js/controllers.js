@@ -193,6 +193,7 @@ app.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window
   $scope.setCtry = function(index) {
     // $scope.signupData.nationality = $scope.countries[index].name
     // $scope.modal.hide()
+    console.log($scope.countries[index].name)
     $state.go('tab.change-search', {nationality: $scope.countries[index].name})
     $scope.modal.hide()
   }
