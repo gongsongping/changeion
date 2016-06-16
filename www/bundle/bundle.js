@@ -44,10 +44,11 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	//ionic
 	// document.write('okkkk')
 	// require("ionic/scss/ionic.scss")
+	// require("ionic/css/ionic.min.css")
 	__webpack_require__(1)
-	// require('./css/style-ionic.scss')
 	__webpack_require__(10)
 	// require('./css/style-smui.scss')
 	__webpack_require__(18)
