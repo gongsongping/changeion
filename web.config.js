@@ -3,9 +3,9 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var purify = require("purifycss-webpack-plugin");
 module.exports = {
-    entry: "./www/web/entry.js",
+    entry: "./web/entry.js",
     output: {
-        path: "./www/web/bundle",
+        path: "./web/bundle",
         filename: "bundle.js"
     },
     module: {
@@ -26,7 +26,7 @@ module.exports = {
 // new purify({
 //     // basePath: __dirname,
 //     paths: [
-//         "./www/web/*.html",
-//         "./www/web/tpls/*.html"
+//         "./web/*.html",
+//         "./web/tpls/*.html"
 //     ]
 // })
