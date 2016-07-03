@@ -7,7 +7,7 @@ set :domain, 'changiif.com'
 # set :domain, '162.243.143.15'
 set :deploy_to, '/home/gsp/wd/change/public'
 # set :deploy_to, '/home/gsp/beta/rails-do'
-set :repository, '/home/gsp/repo/rails-do.git'
+# set :repository, '/home/gsp/repo/rails-do.git'
 set :branch, 'master'
 # set :term_mode, nil
 
