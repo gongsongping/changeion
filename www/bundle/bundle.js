@@ -3073,6 +3073,7 @@
 	    }
 	  }
 	})
+
 	app.directive('croppedImage', function () {
 	  return {
 	    restrict: "E",
@@ -3089,6 +3090,7 @@
 	    }
 	  }
 	})
+
 	// app.directive('chsquare', function () {
 	//   return {
 	//     restrict: 'A',
