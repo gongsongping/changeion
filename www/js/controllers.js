@@ -95,13 +95,14 @@ app.controller('FormsCtrl', function($scope, $http, $state, $rootScope, $window,
   }
 
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
-  $scope.loadMore = function() {
+  
+   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
-        // console.log(JSON.stringify(data))
-        var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
-        $scope.photos.push(data.slice(0,middle))
-        $scope.photos.push(data.slice(middle))
+        console.log(JSON.stringify(data))
+        // $scope.photos = $scope.photos + data
+        // $scope.photos.concat(data)
+        $scope.photos = $scope.photos.concat(data)
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
@@ -116,7 +117,7 @@ app.controller('HomeCtrl', function($scope, $http, $state, $rootScope, $window, 
     if ($scope.dataLength == $scope.limit){
       Par.get({id:0, page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
-        console.log(JSON.stringify(data))
+        // console.log(JSON.stringify(data))
         $scope.dataLength = data.photos.length
         $scope.photos = $scope.photos.concat(data.photos)
         if ($scope.page == 0){$scope.s_askers = data.s_askers; $scope.s_targets = data.s_targets;
@@ -159,13 +160,14 @@ app.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window
 
 app.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window, $resource, Photo, $ionicModal, $timeout, Countries) {
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 5; $scope.dataLength = $scope.limit
+
   $scope.loadMore = function() {
       Photo.query({page: $scope.page, lastId: $scope.lastId})
       .$promise.then(function(data) {
-        // console.log(JSON.stringify(data))
-        var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
-        $scope.photos.push(data.slice(0,middle))
-        $scope.photos.push(data.slice(middle))
+        console.log(JSON.stringify(data))
+        // $scope.photos = $scope.photos + data
+        // $scope.photos.concat(data)
+        $scope.photos = $scope.photos.concat(data)
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })
@@ -202,14 +204,15 @@ app.controller('ChangeCtrl', function($scope, $http, $rootScope, $state, $window
 
 app.controller('ChangeSearchNationalityCtrl', function($scope, $http, $rootScope, $state, $window, $stateParams, $resource, Photo) {
   $scope.photos = []; $scope.page = 0; $scope.lastId = 0; $scope.limit = 6; $scope.dataLength = $scope.limit
+ 
   $scope.loadMore = function() {
-      Photo.query({page: $scope.page, lastId: $scope.lastId, nationality:$stateParams.nationality})
+      Photo.query({page: $scope.page, lastId: $scope.lastId, nationality: $stateParams.nationality})
       .$promise.then(function(data) {
-        // console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data))
+        // $scope.photos = $scope.photos + data
+        // $scope.photos.concat(data)
         $scope.dataLength = data.length
-        var middle; data.length%2 == 0?(middle = data.length/2):(middle = (data.length+1)/2)
-        $scope.photos.push(data.slice(0,middle))
-        $scope.photos.push(data.slice(middle))
+        $scope.photos = $scope.photos.concat(data)
         $scope.page += 1
         $scope.$broadcast('scroll.infiniteScrollComplete')
       })

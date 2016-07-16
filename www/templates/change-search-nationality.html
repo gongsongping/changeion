@@ -1,20 +1,13 @@
 <ion-view view-title="">
-  <!-- <ion-nav-buttons side="secondary">
-    <button ng-click="reload()" class="button button-icon button-clear ion-ios-refresh-empty" >
-    </button>
-  </ion-nav-buttons> -->
-  <ion-content style="">
-    <div style="margin-left:auto; margin-right:auto; max-width:800px;">
-      <div ng-repeat="ps in photos" class="row" style="padding:0px;">
-        <div ng-repeat="p in ps" class="col" style="padding:0.2px;">
-          <a  href="#/tab/change/strangers/{{p.user.id}}">
-            <div style="position:relative;width: 100%; height: 0; padding-top: 100%; background-color:LightCyan; background-image: url({{p.url+'?imageView/1/w/300/h/300'}});background-size: cover;background-position: center center;">
-              <p style="position:absolute; bottom:5px; width:auto; margin:0px;background-color:LightCyan; color:black;">{{p.user.nationality}} {{p.user.name}}</p>
+    <ion-content style="">
+        <div class="ui three column grid" style="margin-left:auto;margin-right:auto;max-width:800px;">
+            <div ng-repeat="p in photos " ng-class="{'column': true}" style="padding:0px;">
+                <div style="position:relative;width: 100%; height: 0; padding-top: 100%; background-color:LightCyan; background-image: url({{p.url+'?imageView/1/w/300/h/300'}});background-size: cover;background-position: center center;">
+                    <p style="position:absolute; bottom:0px; color:black;">{{p.user.nationality}} {{p.user.name}}</p>
+                </div>
             </div>
-          </a>
         </div>
-      </div>
-    </div>
-    <ion-infinite-scroll ng-if="dataLength == limit" on-infinite="loadMore()" distance="50%"></ion-infinite-scroll>
-  </ion-content>
+        <span data-ng-show="expression"="dataLength != limit" class="badge badge-energized">can't find anything!</span>
+        <ion-infinite-scroll ng-if="dataLength == limit" on-infinite="loadMore()" distance="20%"></ion-infinite-scroll>
+    </ion-content>
 </ion-view>

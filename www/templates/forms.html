@@ -1,25 +1,23 @@
 <ion-view view-title="">
-  <ion-nav-buttons side="secondary">
-    <button ng-click="reload()" class="button button-icon button-clear ion-ios-refresh-empty" >
-    </button>
-  </ion-nav-buttons>
-  <ion-content style="">
-    <div ng-include="'templates/_slide_box.html'" ></div>
-    <div style="margin-left:auto; margin-right:auto; max-width:800px;">
-      <div ng-repeat="ps in photos" class="row" style="padding:0px;">
-        <div ng-repeat="p in ps" class="col" style="padding:0.2px;">
-          <div style="position:relative;width: 100%; height: 0; padding-top: 100%; background-color:LightCyan; background-image: url({{p.url+'?imageView/1/w/300/h/300'}});background-size: cover;background-position: center center;">
-            <p style="position:absolute; bottom:5px; width:auto; margin:0px;background-color:LightCyan; color:black;">{{p.user.nationality}} {{p.user.name}}</p>
-          </div>
+    <ion-nav-buttons side="secondary">
+        <button ng-click="reload()" class="button button-icon button-clear ion-ios-refresh-empty">
+        </button>
+    </ion-nav-buttons>
+    <ion-content style="">
+        <div ng-include="'templates/_slide_box.html'"></div>
+        <div class="ui three column grid" style="margin-left:auto;margin-right:auto;max-width:800px;">
+            <div ng-repeat="p in photos " ng-class="{'column': true}" style="padding:0px;">
+                <div style="position:relative;width: 100%; height: 0; padding-top: 100%; background-color:LightCyan; background-image: url({{p.url+'?imageView/1/w/300/h/300'}});background-size: cover;background-position: center center;">
+                    <p style="position:absolute; bottom:0px; color:black;">{{p.user.nationality}} {{p.user.name}}</p>
+                </div>
+            </div>
         </div>
-      </div>
+        <ion-infinite-scroll ng-if="dataLength == limit" on-infinite="loadMore()" distance="20%"></ion-infinite-scroll>
+    </ion-content>
+    <div style="position:fixed; bottom:0px; width: 100vw;">
+        <div class="button-bar">
+            <a class="button button-positive" href="#/login">{{"log_in" | translate}}</a>
+            <a class="button button-balanced" href="#/signup">{{"sign_up" | translate}}</a>
+        </div>
     </div>
-    <ion-infinite-scroll ng-if="dataLength == limit" on-infinite="loadMore()" distance="50%"></ion-infinite-scroll>
-  </ion-content>
-  <div style="position:fixed; bottom:0px; width: 100vw;">
-    <div class="button-bar" >
-      <a class="button button-positive"  href="#/login">{{"log_in" | translate}}</a>
-      <a class="button button-balanced"  href="#/signup">{{"sign_up" | translate}}</a>
-    </div>
-  </div>
 </ion-view>
