@@ -18,11 +18,11 @@ app.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, 
   $rootScope.$on('qiniuUPdate', function() {
     $resource('http://changiif.com/uptoken').get().$promise.then(function(data) {
       $window.localStorage.qiniuToken = data.uptoken
-      console.log('qiniuT  ' + $window.localStorage.qiniuToken)
+      // console.log('qiniuT  ' + $window.localStorage.qiniuToken)
     })
   })
   $rootScope.$broadcast('qiniuUPdate')
-  console.log($window.localStorage.token)
+  // console.log($window.localStorage.token)
   if ($window.localStorage.token) {
     $http.defaults.headers.common["Authorization"] = "Token token=" + $window.localStorage.token
   }

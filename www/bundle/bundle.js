@@ -108,7 +108,7 @@
 	    $window.localStorage.token = ''
 	    $rootScope.currentUser = Boolean($window.localStorage.token)
 	    $http.defaults.headers.common['Authorization'] = ''
-	    console.log($window.localStorage.token)
+	    // console.log($window.localStorage.token)
 	    $rootScope.loginErr = ''
 	    $rootScope.signupErr = ''
 	    $state.go('forms', {}, {reload: true})
@@ -129,15 +129,15 @@
 	  $scope.doLogin = function() {
 	    var sess = new Session($scope.loginData)
 	    sess.$save(function(data) {
-	      console.log(data.token)
+	      // console.log(data.token)
 	      if (data.token) {
 	        $window.localStorage.token = data.token
 	        $rootScope.currentUser = Boolean($window.localStorage.token)
 	        $http.defaults.headers.common['Authorization'] = "Token token=" + data.token
-	        console.log($window.localStorage.token)
+	        // console.log($window.localStorage.token)
 	        $state.go('tab.home', {}, {reload: true})
 	      } else {
-	        console.log(data.err)
+	        // console.log(data.err)
 	        $rootScope.loginErr = data.err
 	      }
 	    })
@@ -181,10 +181,10 @@
 	          $window.localStorage.token = data.token
 	          $rootScope.currentUser = Boolean($window.localStorage.token)
 	          $http.defaults.headers.common['Authorization'] = "Token token=" + data.token
-	          console.log($window.localStorage.token)
+	          // console.log($window.localStorage.token)
 	          $state.go('tab.home', {}, {reload: true})
 	        } else {
-	          console.log(data.err)
+	          // console.log(data.err)
 	          $rootScope.signupErr = data.err
 	        }
 	      })
@@ -196,7 +196,7 @@
 	   $scope.loadMore = function() {
 	      Photo.query({page: $scope.page, lastId: $scope.lastId})
 	      .$promise.then(function(data) {
-	        console.log(JSON.stringify(data))
+	        // console.log(JSON.stringify(data))
 	        // $scope.photos = $scope.photos + data
 	        // $scope.photos.concat(data)
 	        $scope.photos = $scope.photos.concat(data)
@@ -261,7 +261,7 @@
 	  $scope.loadMore = function() {
 	      Photo.query({page: $scope.page, lastId: $scope.lastId})
 	      .$promise.then(function(data) {
-	        console.log(JSON.stringify(data))
+	        // console.log(JSON.stringify(data))
 	        // $scope.photos = $scope.photos + data
 	        // $scope.photos.concat(data)
 	        $scope.photos = $scope.photos.concat(data)
@@ -292,7 +292,7 @@
 	  $scope.setCtry = function(index) {
 	    // $scope.signupData.nationality = $scope.countries[index].name
 	    // $scope.modal.hide()
-	    console.log($scope.countries[index].name)
+	    // console.log($scope.countries[index].name)
 	    $state.go('tab.change-search', {nationality: $scope.countries[index].name})
 	    $scope.modal.hide()
 	  }
@@ -305,7 +305,7 @@
 	  $scope.loadMore = function() {
 	      Photo.query({page: $scope.page, lastId: $scope.lastId, nationality: $stateParams.nationality})
 	      .$promise.then(function(data) {
-	        console.log(JSON.stringify(data))
+	        // console.log(JSON.stringify(data))
 	        // $scope.photos = $scope.photos + data
 	        // $scope.photos.concat(data)
 	        $scope.dataLength = data.length
@@ -375,7 +375,7 @@
 
 	  $scope.downloadImg = function(url) {
 	    var canvas, context; var img = new Image(); img.src = url;
-	    console.log(url);
+	    // console.log(url);
 	    // img.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
 	    img.onload = function() {
 	      canvas = document.getElementById('convasid');
@@ -483,11 +483,11 @@
 	  $rootScope.$on('qiniuUPdate', function() {
 	    $resource('http://changiif.com/uptoken').get().$promise.then(function(data) {
 	      $window.localStorage.qiniuToken = data.uptoken
-	      console.log('qiniuT  ' + $window.localStorage.qiniuToken)
+	      // console.log('qiniuT  ' + $window.localStorage.qiniuToken)
 	    })
 	  })
 	  $rootScope.$broadcast('qiniuUPdate')
-	  console.log($window.localStorage.token)
+	  // console.log($window.localStorage.token)
 	  if ($window.localStorage.token) {
 	    $http.defaults.headers.common["Authorization"] = "Token token=" + $window.localStorage.token
 	  }
