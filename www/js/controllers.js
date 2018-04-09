@@ -136,6 +136,7 @@ app.controller('UphotoCtrl', function($scope, $http, $state, $rootScope, $window
   $rootScope.$broadcast('qiniuUPdate');  $scope.temfiles = []
   // $ionicScrollDelegate.resize()
   $scope.listFiles = function(f) {
+    console.log($scope.temfile);
     $scope.temfile = f //$scope.temfiles.push(f)
   }
   $scope.refresh = function() {

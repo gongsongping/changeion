@@ -5,3 +5,8 @@ node_modules/
 platforms/
 plugins/
 .chcplogin
+.DS_Store
+.idea/
+*.pyc
+.python-version
+fabfile.py
