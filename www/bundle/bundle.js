@@ -478,10 +478,10 @@
 
 	app.run(function($ionicPlatform, $http, $window, $rootScope, $state, $resource, $translate) {
 	  // $rootScope.baseUrl = "http://localhost:3000"
-	  //  $rootScope.baseUrl = "http://162.243.143.15"
-	  $rootScope.baseUrl = "http://localhost:4000"
+	   $rootScope.baseUrl = "http://gongsongping.com"
+	  // $rootScope.baseUrl = "http://gongsongping.com"
 	  $rootScope.$on('qiniuUPdate', function() {
-	    $resource('http://localhost:4000/uptoken').get().$promise.then(function(data) {
+	    $resource('http://gongsongping.com/uptoken').get().$promise.then(function(data) {
 	      $window.localStorage.qiniuToken = data.uptoken
 	      // console.log('qiniuT  ' + $window.localStorage.qiniuToken)
 	    })
